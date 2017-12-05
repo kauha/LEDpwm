@@ -12,6 +12,7 @@ function array_creator(brightness) {
 	}
 	console.log(brightness);
 }
+array_creator(brightness);
 
 piblaster.setPwm(18, 1 ); // 100% brightness
 piblaster.setPwm(23, 0.2 ); // 20% brightness
