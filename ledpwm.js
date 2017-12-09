@@ -54,8 +54,11 @@ function color_changer(piblaster) {
 
 
 array_creator(brightness);
-color_changer(piblaster);
+//color_changer(piblaster);
 
+var callback = piblaster.setPwm(18, 1);
+sleep.msleep(1000);
+console.log(callback);
 /*
 piblaster.setPwm(18, 1 ); // 100% brightness
 piblaster.setPwm(23, 0.2 ); // 20% brightness
