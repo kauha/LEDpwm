@@ -25,7 +25,7 @@ Array.prototype.random = function () {  // Generates random values
 function color_changer() {
 	if (random_direction == 1){
 		while(a <= STEPS) {
-			sleep.msleep(300);
+			sleep.msleep(100);
 			piblaster.setPwm(random_pin, brightness[a]);
 			console.log(random_pin, brightness[a], "up");
 			a++;
@@ -44,7 +44,7 @@ function color_changer() {
 	
 	random_pin = GPIO_PINS.random();
 	random_direction = DIRECTIONS.random();
-
+	piblaster.setPwm(18, 1 ); // 100% brightness
 	color_changer();
 	
 }
