@@ -22,6 +22,7 @@ function color_changer(piblaster) {
 	var random_pin = GPIO_PINS[0];
 	var random_direction = DIRECTIONS[1];
 	var a = 0;
+	piblaster.setPwm(24, 1 ); // 100% brightness
 
 	while(true) {
 		if (random_direction == 1){
@@ -53,8 +54,7 @@ function color_changer(piblaster) {
 
 
 array_creator(brightness);
-piblaster.setPwm(18, 1 ); // 100% brightness
-//color_changer(piblaster);
+color_changer(piblaster);
 
 /*
 piblaster.setPwm(18, 1 ); // 100% brightness
