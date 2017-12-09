@@ -23,33 +23,34 @@ Array.prototype.random = function () {  // Generates random values
 }
 
 function color_changer() {
-	/*if (random_direction == 1){
-		while(a <= STEPS) {
+	if (random_direction == 1){
+		if(a <= STEPS) {
 			sleep.msleep(100);
-			piblaster.setPwm(random_pin, brightness[a]);
 			console.log(random_pin, brightness[a], "up");
+			piblaster.setPwm(random_pin, brightness[a] ,function(callback) {
+				console.log("sisällä");
+				color_changer();
+			});
 			a++;
 		}
 	} else {
-		while(a != 0){
+		if(a != 0){
 			//piblaster.setPwm(random_pin, brightness[a]);
 			sleep.msleep(100);
 			console.log(random_pin, brightness[a], "down");
+			piblaster.setPwm(random_pin, brightness[a] ,function(callback) {
+				console.log("sisällä");
+				color_changer();
+			});
 			a--;
 			if (a == 1) {
 				a = 0;
 			}
 		}
 	}
-	*/
+	
 	random_pin = GPIO_PINS.random();
 	random_direction = DIRECTIONS.random();
-	sleep.msleep(1000);
-	piblaster.setPwm(18, 1 ,function(callback) {
-			console.log("sisällä");
-			color_changer();
-		}); // 100% brightness
-	console.log("Jotain!!")
 	sleep.msleep(1000);
 	//color_changer();
 	
