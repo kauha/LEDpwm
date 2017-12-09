@@ -45,7 +45,7 @@ function color_changer() {
 	random_pin = GPIO_PINS.random();
 	random_direction = DIRECTIONS.random();
 	sleep.msleep(1000);
-	piblaster.setPwm(18, 1 ); // 100% brightness
+	callback = piblaster.setPwm(18, 1 ,function(callback)) {}; // 100% brightness
 	console.log("Jotain!!")
 	sleep.msleep(1000);
 	color_changer();
