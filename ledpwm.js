@@ -18,7 +18,7 @@ Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
 
-function color_changer() {
+function color_changer(piblaster) {
 	var random_pin = GPIO_PINS[0];
 	var random_direction = DIRECTIONS[1];
 	var a = 0;
@@ -54,7 +54,7 @@ function color_changer() {
 
 array_creator(brightness);
 
-color_changer();
+color_changer(piblaster);
 
 /*
 piblaster.setPwm(18, 1 ); // 100% brightness
