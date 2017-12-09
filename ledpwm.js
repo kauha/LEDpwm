@@ -28,9 +28,9 @@ function color_changer(piblaster) {
 		if (random_direction == 1){
 			while(a <= STEPS) {
 				//piblaster.setPwm(random_pin, brightness[a]);
-				piblaster.setPwm(23, 1);
+				var callback = piblaster.setPwm(23, 1);
 				sleep.msleep(1000);
-				console.log(random_pin, brightness[a], "up");
+				console.log(callback, random_pin, brightness[a], "up");
 				a++;
 			}
 		} else {
