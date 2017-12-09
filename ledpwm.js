@@ -30,7 +30,7 @@ async function color_changer(piblaster) {
 				//set_color(random_pin, brightness[a]);
 				try {
 					callback = await piblaster.setPwm(random_pin, brightness[a]);
-				} catch {
+				} catch () {
 					console.log("Error")
 				}
 				console.log(callback, random_pin, brightness[a], "up");
