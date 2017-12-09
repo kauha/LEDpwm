@@ -56,12 +56,9 @@ async function set_color(pin_number, brightness_number){
 }
 
 array_creator(brightness);
-//color_changer(piblaster);
 
-var callback = piblaster.setPwm(18, 1);
-console.log(1);
-sleep.msleep(5000);
-console.log(2);
+color_changer(piblaster);
+
 /*
 piblaster.setPwm(18, 1 ); // 100% brightness
 piblaster.setPwm(23, 0.2 ); // 20% brightness
