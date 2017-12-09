@@ -31,6 +31,10 @@ function color_changer() {
 				color_changer();
 			});
 			a++;
+		}else {
+				random_pin = GPIO_PINS.random();
+				random_direction = DIRECTIONS.random();
+				color_changer();	
 		}
 	} else {
 		if(a >= 1){
@@ -42,9 +46,9 @@ function color_changer() {
 			});
 			a--;
 		} else {
-				color_changer();
 				random_pin = GPIO_PINS.random();
 				random_direction = DIRECTIONS.random();
+				color_changer();
 		}
 	}
 		
