@@ -38,6 +38,7 @@ function color_looper() {
 			a++;
 		} else {
 				random_color = COLORS.random();
+				console.log(1);
 				if (current_colors[random_color] == 0){
 					direction = 1;
 				} else {
