@@ -50,7 +50,7 @@ function color_changer(piblaster) {
 	}
 }
 
-function set_color(pin_number, brightness_number){
+function set_color(pin_number, brightness_number, function(color_changer){
 	piblaster.setPwm(pin_number, brightness_number);
 	console.log(pin_number, brightness_number, "up async");
 }
