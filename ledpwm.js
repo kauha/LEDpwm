@@ -55,7 +55,7 @@ function color_looper() {
 function color_changer(pin, brightness_level, direction) {
 	piblaster.setPwm(pin, brightness_level, function(callback) {
 		console.log(pin, brightness_level, direction);
-		color_looper();
+		//color_looper();
 	});
 }
 
