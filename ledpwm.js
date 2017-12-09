@@ -9,11 +9,11 @@ const STEPS = 256;		// The number of brightness levels
 
 var current_colors = [0,0,0];
 
+
+
+
+
 var brightness = new Array(STEPS);
-
-var direction = 1
-var a = 0;
-
 function array_creator(brightness) {
 	var i = 0;
 	while(i <= STEPS) {
@@ -25,6 +25,10 @@ function array_creator(brightness) {
 Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
+
+var direction = 1
+var a = 0;
+var random_color = 0;
 
 function color_looper() {
 	if (direction == 1){
