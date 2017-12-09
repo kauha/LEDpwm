@@ -28,7 +28,7 @@ function color_changer(piblaster) {
 			while(a <= STEPS) {
 				var callback = piblaster.setPwm(23, 1);
 				sleep.msleep(1000);
-				await set_color(random_pin, brightness[a]);
+				set_color(random_pin, brightness[a]);
 				console.log(callback, random_pin, brightness[a], "up");
 				a++;
 			}
