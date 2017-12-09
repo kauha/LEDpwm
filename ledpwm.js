@@ -25,10 +25,9 @@ Array.prototype.random = function () {  // Generates random values
 function color_changer() {
 	if (random_direction == 1){
 		if(a <= STEPS) {
-			sleep.msleep(100);
-			console.log(random_pin, brightness[a], "up");
+			sleep.msleep(10);
 			piblaster.setPwm(random_pin, brightness[a] ,function(callback) {
-				console.log("sisällä");
+				console.log(random_pin, brightness[a], "up");
 				color_changer();
 			});
 			a++;
@@ -36,10 +35,9 @@ function color_changer() {
 	} else {
 		if(a >= 1){
 			//piblaster.setPwm(random_pin, brightness[a]);
-			sleep.msleep(100);
-			console.log(random_pin, brightness[a], "down");
+			sleep.msleep(10);
 			piblaster.setPwm(random_pin, brightness[a] ,function(callback) {
-				console.log("sisällä");
+				console.log(random_pin, brightness[a], "down");
 				color_changer();
 			});
 			a--;
