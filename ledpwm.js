@@ -22,14 +22,13 @@ function color_changer(piblaster) {
 	var random_pin = GPIO_PINS[0];
 	var random_direction = DIRECTIONS[1];
 	var a = 0;
-	piblaster.setPwm(24, 1 ); // 100% brightness
 
 	while(true) {
 		if (random_direction == 1){
 			while(a <= STEPS) {
-				//piblaster.setPwm(random_pin, brightness[a]);
 				var callback = piblaster.setPwm(23, 1);
 				sleep.msleep(1000);
+				await set_color(random_pin, brightness[a]);
 				console.log(callback, random_pin, brightness[a], "up");
 				a++;
 			}
@@ -52,6 +51,9 @@ function color_changer(piblaster) {
 	}
 }
 
+async function set_color(pin_number, brightness_number){
+	piblaster.setPwm(pin_number, brightness_number);
+}
 
 array_creator(brightness);
 //color_changer(piblaster);
