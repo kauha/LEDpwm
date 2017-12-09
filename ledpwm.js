@@ -48,7 +48,7 @@ function color_looper() {
 		}
 	}
 		
-	//color_looper();
+	color_looper();
 	
 }
 
