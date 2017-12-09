@@ -1,7 +1,7 @@
 var piblaster = require('pi-blaster.js'); // Require pi-blaster lib
 var sleep = require('sleep'); //Sleeping
 const GPIO_PINS = [18, 23, 24];		// Define used GPIO pins
-const STEPS = 255;		// The number of brightness levels
+const STEPS = 256;		// The number of brightness levels
 const DIRECTIONS = [-1,1]; 
 
 var brightness = new Array(STEPS);
@@ -12,7 +12,7 @@ var a = 0;
 
 function array_creator(brightness) {
 	var i = 0;
-	while(i <= STEPS) {
+	while(i < STEPS) {
 		brightness[i] = (i / STEPS);
 		i++;
 	}
@@ -24,7 +24,7 @@ Array.prototype.random = function () {  // Generates random values
 
 function color_changer() {
 	if (random_direction == 1){
-		if(a <= STEPS) {
+		if(a < STEPS) {
 			sleep.msleep(10);
 			piblaster.setPwm(random_pin, brightness[a] ,function(callback) {
 				console.log(random_pin, brightness[a], "up");
