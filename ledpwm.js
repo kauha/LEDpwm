@@ -17,7 +17,7 @@ Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
 
-function color_changer() {
+async function color_changer() {
 	var random_pin = GPIO_PINS[0];
 	var random_direction = DIRECTIONS[1];
 	var a = 0;
