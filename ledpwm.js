@@ -39,10 +39,7 @@ function color_looper() {
 	} else {
 		if(a >= 1) {
 			sleep.msleep(10);
-			piblaster.setPwm(random_pin, brightness[a], function(callback) {
-				console.log(random_pin, brightness[a], random_direction);
-				color_looper();
-			});
+			color_changer(random_pin, brightness[a], random_direction);
 			a--;
 		} else {
 				random_pin = GPIO_PINS.random();
