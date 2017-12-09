@@ -18,7 +18,7 @@ Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
 
-function color_changer(piblaster) {
+function color_changer() {
 	var random_pin = GPIO_PINS[0];
 	var random_direction = DIRECTIONS[1];
 	var a = 0;
@@ -26,14 +26,15 @@ function color_changer(piblaster) {
 	while(true) {
 		if (random_direction == 1){
 			while(a <= STEPS) {
-				piblaster.setPwm(random_pin, brightness[a]);
+				//piblaster.setPwm(random_pin, brightness[a]);
+				piblaster.setPwm(18, brightness[150]);
 				sleep.msleep(100);
 				console.log(random_pin, brightness[a], "up");
 				a++;
 			}
 		} else {
 			while(a != 0){
-				piblaster.setPwm(random_pin, brightness[a]);
+				//piblaster.setPwm(random_pin, brightness[a]);
 				sleep.msleep(100);
 				console.log(random_pin, brightness[a], "down");
 				a--;
