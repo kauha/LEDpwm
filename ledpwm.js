@@ -52,6 +52,11 @@ function color_looper() {
 			a--;
 		} else {
 				random_color = COLORS.random();
+				if (current_colors[random_color] == 0){
+					direction = 1;
+				} else {
+					direction = -1;
+				}
 				color_looper();
 		}
 	}
