@@ -28,6 +28,9 @@ function color_changer() {
 			sleep.msleep(10);
 			piblaster.setPwm(random_pin, brightness[a] ,function(callback) {
 				console.log(random_pin, brightness[a], "up");
+				if (brightness[a] = undefined){
+					break;
+				}
 				color_changer();
 			});
 			a++;
@@ -42,6 +45,9 @@ function color_changer() {
 			sleep.msleep(10);
 			piblaster.setPwm(random_pin, brightness[a] ,function(callback) {
 				console.log(random_pin, brightness[a], "down");
+				if (brightness[a] = undefined){
+					break;
+				}
 				color_changer();
 			});
 			a--;
