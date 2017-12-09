@@ -12,7 +12,7 @@ var a = 0;
 
 function array_creator(brightness) {
 	var i = 0;
-	while(i < STEPS) {
+	while(i <= STEPS) {
 		brightness[i] = (i / STEPS);
 		i++;
 	}
