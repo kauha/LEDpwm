@@ -45,10 +45,13 @@ function color_changer() {
 	random_pin = GPIO_PINS.random();
 	random_direction = DIRECTIONS.random();
 	sleep.msleep(1000);
-	callback = piblaster.setPwm(18, 1 ,function(callback) { console.log("sisällä") }); // 100% brightness
+	piblaster.setPwm(18, 1 ,function(callback) {
+			console.log("sisällä");
+			color_changer();
+		}); // 100% brightness
 	console.log("Jotain!!")
 	sleep.msleep(1000);
-	color_changer();
+	//color_changer();
 	
 }
 
