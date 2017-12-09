@@ -34,7 +34,7 @@ function color_changer() {
 			a++;
 		}
 	} else {
-		if(a != 0){
+		if(a >= 1){
 			//piblaster.setPwm(random_pin, brightness[a]);
 			sleep.msleep(100);
 			console.log(random_pin, brightness[a], "down");
@@ -43,15 +43,14 @@ function color_changer() {
 				color_changer();
 			});
 			a--;
-			if (a == 1) {
-				a = 0;
+			else {
+				color_changer();
 			}
 		}
 	}
 	
 	random_pin = GPIO_PINS.random();
 	random_direction = DIRECTIONS.random();
-	sleep.msleep(1000);
 	//color_changer();
 	
 }
