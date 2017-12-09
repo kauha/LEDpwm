@@ -1,6 +1,9 @@
 var piblaster = require('pi-blaster.js'); // Require pi-blaster lib
 var sleep = require('sleep'); //Sleeping
-const GPIO_PINS = [18, 23, 24];		// Define used GPIO pins
+const red_pin = 18;
+const green_pin = 23;
+const blue_pin = 24;
+const GPIO_PINS = [red_pin, green_pin, blue_pin];		// Define used GPIO pins
 const STEPS = 256;		// The number of brightness levels
 const DIRECTIONS = [-1,1]; 
 
@@ -22,50 +25,47 @@ Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
 
-function color_changer() {
+function color_looper() {
 	if (random_direction == 1){
 		if(a < STEPS) {
 			sleep.msleep(10);
-			piblaster.setPwm(random_pin, brightness[a] ,function(callback) {
-				console.log(random_pin, brightness[a], "up");
-				if (brightness[a] == undefined){
-					process.exit(1)
-				}
-				color_changer();
-			});
+			color_changer(random_pin, brightness[a], random_direction);
 			a++;
-		}else {
+		} else {
 				random_pin = GPIO_PINS.random();
 				random_direction = DIRECTIONS.random();
-				color_changer();	
+				color_looper();	
 		}
 	} else {
-		if(a >= 1){
-			//piblaster.setPwm(random_pin, brightness[a]);
+		if(a >= 1) {
 			sleep.msleep(10);
-			piblaster.setPwm(random_pin, brightness[a] ,function(callback) {
-				console.log(random_pin, brightness[a], "down");
-				if (brightness[a] == undefined){
-					process.exit(1)
-				}
-				color_changer();
+			piblaster.setPwm(random_pin, brightness[a], function(callback) {
+				console.log(random_pin, brightness[a], random_direction);
+				color_looper();
 			});
 			a--;
 		} else {
 				random_pin = GPIO_PINS.random();
 				random_direction = DIRECTIONS.random();
-				color_changer();
+				color_looper();
 		}
 	}
 		
-	//color_changer();
+	//color_looper();
 	
+}
+
+function color_changer(pin, brightness_level, direction) {
+	piblaster.setPwm(pin, brightness_level, function(callback) {
+		console.log(pin, brightness_level, direction);
+		color_looper();
+	});
 }
 
 
 array_creator(brightness);
 
-color_changer();
+color_looper();
 
 /*
 piblaster.setPwm(18, 1 ); // 100% brightness
