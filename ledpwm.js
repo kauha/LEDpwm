@@ -26,11 +26,13 @@ function color_changer() {
 		if (random_direction == 1){
 			while(a <= STEPS) {
 				piblaster.setPwm(random_pin, brightness[a]);
+				console.log(random_pin, brightness[a], "up");
 				a++;
 			}
 		} else {
 			while(a != 0){
 				piblaster.setPwm(random_pin, brightness[a]);
+				console.log(random_pin, brightness[a], "down");
 				a--;
 				if (a == 1) {
 					a = 0;
