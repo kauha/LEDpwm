@@ -43,9 +43,8 @@ function color_changer() {
 				color_changer();
 			});
 			a--;
-			else {
+		} else {
 				color_changer();
-			}
 		}
 	}
 	
