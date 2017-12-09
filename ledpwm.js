@@ -26,9 +26,13 @@ async function color_changer(piblaster) {
 	while(true) {
 		if (random_direction == 1){
 			while(a <= STEPS) {
-				sleep.msleep(1000);
+				sleep.msleep(300);
 				//set_color(random_pin, brightness[a]);
-				callback = await piblaster.setPwm(random_pin, brightness[a]);
+				try {
+					callback = await piblaster.setPwm(random_pin, brightness[a]);
+				} catch {
+					console.log("Error")
+				}
 				console.log(callback, random_pin, brightness[a], "up");
 				a++;
 			}
