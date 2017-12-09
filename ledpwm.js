@@ -52,7 +52,7 @@ function color_changer() {
 	random_pin = GPIO_PINS.random();
 	random_direction = DIRECTIONS.random();
 	sleep.msleep(1000);
-	color_changer();
+	//color_changer();
 	
 }
 
