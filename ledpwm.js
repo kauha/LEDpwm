@@ -58,7 +58,7 @@ array_creator(brightness);
 
 var callback = piblaster.setPwm(18, 1);
 console.log(1);
-sleep.msleep(1000);
+sleep.msleep(5000);
 console.log(2);
 /*
 piblaster.setPwm(18, 1 ); // 100% brightness
