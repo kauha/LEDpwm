@@ -6,11 +6,15 @@ const DIRECTIONS = [-1,1];
 
 var brightness = new Array(STEPS);
 
+var random_pin = GPIO_PINS[0];
+var random_direction = DIRECTIONS[1];
+var a = 0;
+
 function array_creator(brightness) {
-	var a = 0;
-	while(a <= STEPS) {
-		brightness[a] = (a / STEPS);
-		a++;
+	var i = 0;
+	while(i <= STEPS) {
+		brightness[i] = (i / STEPS);
+		i++;
 	}
 }
 
@@ -18,52 +22,37 @@ Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
 
-async function color_changer(piblaster) {
-	var random_pin = GPIO_PINS[0];
-	var random_direction = DIRECTIONS[1];
-	var a = 0;
-
-	while(true) {
-		if (random_direction == 1){
-			while(a <= STEPS) {
-				sleep.msleep(300);
-				//set_color(random_pin, brightness[a]);
-				let callback;
-				try {
-					callback = await piblaster.setPwm(random_pin, brightness[a]);
-				} catch (err) {
-					console.log("Error", err)
-				}
-				console.log(callback, random_pin, brightness[a], "up");
-				a++;
-			}
-		} else {
-			while(a != 0){
-				//piblaster.setPwm(random_pin, brightness[a]);
-				sleep.msleep(100);
-				console.log(random_pin, brightness[a], "down");
-				a--;
-				if (a == 1) {
-					a = 0;
-				}
+function color_changer() {
+	if (random_direction == 1){
+		while(a <= STEPS) {
+			sleep.msleep(300);
+			piblaster.setPwm(random_pin, brightness[a]);
+			console.log(random_pin, brightness[a], "up");
+			a++;
+		}
+	} else {
+		while(a != 0){
+			//piblaster.setPwm(random_pin, brightness[a]);
+			sleep.msleep(100);
+			console.log(random_pin, brightness[a], "down");
+			a--;
+			if (a == 1) {
+				a = 0;
 			}
 		}
-		
-		random_pin = GPIO_PINS.random();
-		random_direction = DIRECTIONS.random();
-
-
 	}
+	
+	random_pin = GPIO_PINS.random();
+	random_direction = DIRECTIONS.random();
+
+	color_changer();
+	
 }
 
-function set_color(pin_number, brightness_number){
-	piblaster.setPwm(pin_number, brightness_number);
-	console.log(pin_number, brightness_number, "up async");
-}
 
 array_creator(brightness);
 
-color_changer(piblaster);
+color_changer();
 
 /*
 piblaster.setPwm(18, 1 ); // 100% brightness
