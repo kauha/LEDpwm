@@ -25,12 +25,12 @@ function color_changer() {
 	while(true) {
 		if (random_direction == 1){
 			while(a <= STEPS) {
-
+				piblaster.setPwm(random_pin, brightness[a]);
 				a++;
 			}
 		} else {
 			while(a != 0){
-
+				piblaster.setPwm(random_pin, brightness[a]);
 				a--;
 				if (a == 1) {
 					a = 0;
@@ -40,7 +40,7 @@ function color_changer() {
 		
 		random_pin = GPIO_PINS.random();
 		random_direction = DIRECTIONS.random();
-		piblaster.setPwm
+
 
 	}
 }
@@ -48,8 +48,10 @@ function color_changer() {
 
 array_creator(brightness);
 
+color_changer();
 
-
+/*
 piblaster.setPwm(18, 1 ); // 100% brightness
 piblaster.setPwm(23, 0.2 ); // 20% brightness
 piblaster.setPwm(24, 0 ); // off
+*/
