@@ -28,18 +28,18 @@ Array.prototype.random = function () {  // Generates random values
 
 var direction = 1
 var a = 0;
-var random_color = 0;
+var selected_color = 0;
 
 function color_looper() {
 	if (direction == 1){
-		if(a < STEPS) {
+		if(current_colors[selected_color] < STEPS) {
 			sleep.msleep(10);
-			color_changer(current_colors[random_color], brightness[a], direction);
-			a++;
+			color_changer(selected_color, current_colors[selected_color], direction);
+			current_colors[selected_color]++;
 		} else {
-				random_color = COLORS.random();
+				selected_color = COLORS.random();
 				console.log(1);
-				if (current_colors[random_color] == 0){
+				if (current_colors[selected_color] == 0){
 					direction = 1;
 				} else {
 					direction = -1;
@@ -47,13 +47,13 @@ function color_looper() {
 				color_looper();	
 		}
 	} else {
-		if(a >= 1) {
+		if(current_colors[selected_color] >= 1) {
 			sleep.msleep(10);
-			color_changer(random_color, brightness[a], direction);
-			a--;
+			color_changer(selected_color, current_colors[selected_color], direction);
+			current_colors[selected_color]--;
 		} else {
-				random_color = COLORS.random();
-				if (current_colors[random_color] == 0){
+				selected_color = COLORS.random();
+				if (current_colors[selected_color] == 0){
 					direction = 1;
 				} else {
 					direction = -1;
