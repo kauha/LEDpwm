@@ -64,7 +64,7 @@ function color_looper() {
 }
 
 function color_changer(pin, brightness_level, direction) {
-	piblaster.setPwm(GPIO_PINS[pin], brightness_level, function(callback) {
+	piblaster.setPwm(GPIO_PINS[pin], (brightness_level/STEPS), function(callback) {
 		console.log(pin, brightness_level, direction);
 		color_looper();
 	});
