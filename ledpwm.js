@@ -1,8 +1,8 @@
 var piblaster = require('pi-blaster.js'); // Require pi-blaster lib
 var sleep = require('sleep'); //Sleeping
-const red_pin = 18;
+const red_pin = 24;
 const green_pin = 23;
-const blue_pin = 24;
+const blue_pin = 25;
 const GPIO_PINS = [red_pin, green_pin, blue_pin];
 const COLORS = [0,1,2];		// Define used GPIO pins
 const STEPS = 256;		// The number of brightness levels
