@@ -30,7 +30,7 @@ gpio.setup(power_pin, gpio.DIR_OUT, start_power);
 function start_power() {
 	gpio.write(power_pin, true, function(err) {
         if (err) throw err;
-        console.log('Power on');
+        console.log('Power supply turned on');
     });
 }
 
@@ -40,10 +40,10 @@ Array.prototype.random = function () {  // Generates random values
 
 var direction = 1
 var a = 0;
-var selected_color = 'red';
+var selected_color = key_array.random();
+console.log("Changing brightness of", selected_color);
 
 function color_looper() {
-	console.log("Changing brightness of", selected_color);
 	if (direction == 1){
 		if(colors[selected_color]['current_brightness'] < STEPS) {
 			sleep.msleep(10);
@@ -51,6 +51,7 @@ function color_looper() {
 			colors[selected_color]['current_brightness']++;
 		} else {
 				selected_color = key_array.random();
+				console.log("Changing brightness of", selected_color);
 				if (colors[selected_color]['current_brightness'] == 0){
 					direction = 1;
 				} else {
