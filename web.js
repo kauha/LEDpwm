@@ -6,6 +6,10 @@ http.createServer( function (request, response) {
 
 	var pathname = url.parse(request.url).pathname;
 
+	if (pathname == "/") {
+		pathname = "/index-htm";
+	}
+
 	// Print the name of the file for which request is made.
    console.log("Request for " + pathname + " received.");
    
