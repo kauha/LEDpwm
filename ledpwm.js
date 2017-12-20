@@ -9,7 +9,7 @@ const green_pin = 25;
 const blue_pin = 24;
 const STEPS = 256;		// The number of brightness levels
 
-const key_array ['red', 'green', 'blue_pin'];
+const key_array = ['red', 'green', 'blue_pin'];
 var colors = {  // Stores the pins of the colors and the current brightness of the strip
 	'red': {
 		'pin': red_pin,
