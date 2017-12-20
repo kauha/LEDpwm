@@ -43,6 +43,7 @@ var a = 0;
 var selected_color = 'red';
 
 function color_looper() {
+	console.log("Changing brightness of", selected_color);
 	if (direction == 1){
 		if(colors[selected_color]['current_brightness'] < STEPS) {
 			sleep.msleep(10);
@@ -50,7 +51,6 @@ function color_looper() {
 			colors[selected_color]['current_brightness']++;
 		} else {
 				selected_color = key_array.random();
-				console.log("Color is", selected_color);
 				if (colors[selected_color]['current_brightness'] == 0){
 					direction = 1;
 				} else {
