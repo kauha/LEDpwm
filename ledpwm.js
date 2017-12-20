@@ -4,14 +4,25 @@ var sleep = require('sleep'); //Sleeping
 
 const power_pin = 7;  // Pin to start up the ATX PSU  !!Different pin numbering
 
-const red_pin = 24;
+const red_pin = 24;		// Define used GPIO pins
 const green_pin = 23;
 const blue_pin = 25;
-const GPIO_PINS = [red_pin, blue_pin, green_pin];
-const COLORS = {"red": red_pin, "green": green_pin, "blue": blue_pin};		// Define used GPIO pins
 const STEPS = 256;		// The number of brightness levels
 
-var current_colors = {"red": 0, "green": 0, "blue": 0};
+var colors = {  // Stores the pins of the colors and the current brightness of the strip
+	red: {
+		pin: red_pin,
+		current_brightness: 0	
+	},
+	green:{
+		pin: green_pin,
+		current_brightness: 0
+	},
+	blue: {
+		pin: blue_pin,
+		current_brightness: 0
+	}
+};		
 
 gpio.setup(power_pin, gpio.DIR_OUT, start_power);
 
@@ -39,18 +50,18 @@ Array.prototype.random = function () {  // Generates random values
 
 var direction = 1
 var a = 0;
-var selected_color = "red";
+var selected_color = red;
 
 function color_looper() {
 	if (direction == 1){
-		if(current_colors[selected_color] < STEPS) {
+		if(colors[selected_color][current_brightness] < STEPS) {
 			sleep.msleep(10);
-			color_changer(selected_color, current_colors[selected_color], direction);
-			current_colors[selected_color]++;
+			color_changer();
+			colors[selected_color][current_brightness]++;
 		} else {
-				selected_color = COLORS.random();
+				selected_color = colors.random();
 				console.log("Color is", selected_color);
-				if (current_colors[selected_color] == 0){
+				if (colors[selected_color][current_brightness] == 0){
 					direction = 1;
 				} else {
 					direction = -1;
@@ -58,13 +69,13 @@ function color_looper() {
 				color_looper();	
 		}
 	} else {
-		if(current_colors[selected_color] >= 1) {
+		if(colors[selected_color][current_brightness] >= 1) {
 			sleep.msleep(10);
-			color_changer(selected_color, current_colors[selected_color], direction);
-			current_colors[selected_color]--;
+			color_changer();
+			colors[selected_color][current_brightness]--;
 		} else {
-				selected_color = COLORS.random();
-				if (current_colors[selected_color] == 0){
+				selected_color = colors.random();
+				if (colors[selected_color][current_brightness] == 0){
 					direction = 1;
 				} else {
 					direction = -1;
@@ -74,9 +85,10 @@ function color_looper() {
 	}
 }
 
-function color_changer(pin, brightness_level, direction) {
-	piblaster.setPwm(GPIO_PINS[pin], (brightness_level/STEPS), function(callback) {
-		//console.log(pin, brightness_level, direction);
+function color_changer() {
+	piblaster.setPwm(colors.red.pin, (brightness_level/STEPS), function(callback) {
+		piblaster.setPwm(colors.green.pin, (brightness_level/STEPS);
+		piblaster.setPwm(colors.blue.pin, (brightness_level/STEPS);
 		color_looper();
 	});
 }
