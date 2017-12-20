@@ -2,11 +2,11 @@ var http = require('http');
 var fs = require('fs');
 var url = require('url');
 
-http.createServer(function (request, response) {
+http.createServer( function (request, response) {
 
 	var pathname = url.parse(request.url).pathname;
 
-// Print the name of the file for which request is made.
+	// Print the name of the file for which request is made.
    console.log("Request for " + pathname + " received.");
    
    // Read the requested file content from file system
@@ -28,7 +28,7 @@ http.createServer(function (request, response) {
       // Send the response body 
       response.end();
    });   
-}).listen(80);
+}).listen(8081);
 
 // Console will print the message
-console.log('Server running at http://127.0.0.1:80/');
+console.log('Server running at http://127.0.0.1:8081/');
