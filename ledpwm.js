@@ -54,14 +54,14 @@ var selected_color = 'red';
 
 function color_looper() {
 	if (direction == 1){
-		if(colors[selected_color][current_brightness] < STEPS) {
+		if(colors[selected_color]['current_brightness'] < STEPS) {
 			sleep.msleep(10);
 			color_changer();
-			colors[selected_color][current_brightness]++;
+			colors[selected_color]['current_brightness']++;
 		} else {
 				selected_color = colors.random();
 				console.log("Color is", selected_color);
-				if (colors[selected_color][current_brightness] == 0){
+				if (colors[selected_color]['current_brightness'] == 0){
 					direction = 1;
 				} else {
 					direction = -1;
@@ -69,13 +69,13 @@ function color_looper() {
 				color_looper();	
 		}
 	} else {
-		if(colors[selected_color][current_brightness] >= 1) {
+		if(colors[selected_color]['current_brightness'] >= 1) {
 			sleep.msleep(10);
 			color_changer();
-			colors[selected_color][current_brightness]--;
+			colors[selected_color]['current_brightness']--;
 		} else {
 				selected_color = colors.random();
-				if (colors[selected_color][current_brightness] == 0){
+				if (colors[selected_color]['current_brightness'] == 0){
 					direction = 1;
 				} else {
 					direction = -1;
