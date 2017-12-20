@@ -4,11 +4,12 @@ var sleep = require('sleep'); //Sleeping
 
 const power_pin = 7;  // Pin to start up the ATX PSU  !!Different pin numbering
 
-const red_pin = 24;		// Define used GPIO pins
-const green_pin = 23;
-const blue_pin = 25;
+const red_pin = 23;		// Define used GPIO pins
+const green_pin = 25;
+const blue_pin = 24;
 const STEPS = 256;		// The number of brightness levels
 
+const key_array ['red', 'green', 'blue_pin'];
 var colors = {  // Stores the pins of the colors and the current brightness of the strip
 	'red': {
 		'pin': red_pin,
@@ -33,17 +34,6 @@ function start_power() {
     });
 }
 
-
-
-var brightness = new Array(STEPS);
-function array_creator(brightness) {
-	var i = 0;
-	while(i <= STEPS) {
-		brightness[i] = (i / STEPS);
-		i++;
-	}
-}
-
 Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
@@ -59,7 +49,7 @@ function color_looper() {
 			color_changer();
 			colors[selected_color]['current_brightness']++;
 		} else {
-				selected_color = colors.random();
+				selected_color = key_array.random();
 				console.log("Color is", selected_color);
 				if (colors[selected_color]['current_brightness'] == 0){
 					direction = 1;
@@ -74,7 +64,7 @@ function color_looper() {
 			color_changer();
 			colors[selected_color]['current_brightness']--;
 		} else {
-				selected_color = colors.random();
+				selected_color = key_array.random();
 				if (colors[selected_color]['current_brightness'] == 0){
 					direction = 1;
 				} else {
@@ -92,9 +82,6 @@ function color_changer() {
 		color_looper();
 	});
 }
-
-
-array_creator(brightness);
 
 color_looper();
 
