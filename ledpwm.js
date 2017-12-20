@@ -49,7 +49,7 @@ function color_looper() {
 			current_colors[selected_color]++;
 		} else {
 				selected_color = COLORS.random();
-				console.log(1);
+				console.log("Color is", selected_color);
 				if (current_colors[selected_color] == 0){
 					direction = 1;
 				} else {
