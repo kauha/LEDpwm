@@ -1,7 +1,9 @@
 var piblaster = require('pi-blaster.js'); // Require pi-blaster lib
 var gpio = require('rpi-gpio');   // Require rpi-gpio lib for starting ATX PSU
-const power_pin = 7;  // Pin to start up the ATX PSU  !!Different pin numbering
 var sleep = require('sleep'); //Sleeping
+
+const power_pin = 7;  // Pin to start up the ATX PSU  !!Different pin numbering
+
 const red_pin = 24;
 const green_pin = 23;
 const blue_pin = 25;
@@ -74,7 +76,7 @@ function color_looper() {
 
 function color_changer(pin, brightness_level, direction) {
 	piblaster.setPwm(GPIO_PINS[pin], (brightness_level/STEPS), function(callback) {
-		console.log(pin, brightness_level, direction);
+		//console.log(pin, brightness_level, direction);
 		color_looper();
 	});
 }
