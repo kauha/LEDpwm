@@ -14,7 +14,7 @@ var current_colors = [0,0,0];
 gpio.setup(power_pin, gpio.DIR_HIGH, start_power);
 
 function start_power() {
-	gpio.write(7, false, function(err) {
+	gpio.write(power_pin, false, function(err) {
         if (err) throw err;
         console.log('Power on');
     });
