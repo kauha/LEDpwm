@@ -11,10 +11,10 @@ const STEPS = 256;		// The number of brightness levels
 
 var current_colors = [0,0,0];
 
-gpio.setup(power_pin, gpio.DIR_HIGH, start_power);
+gpio.setup(power_pin, gpio.DIR_OUT, start_power);
 
 function start_power() {
-	gpio.write(power_pin, false, function(err) {
+	gpio.write(power_pin, true, function(err) {
         if (err) throw err;
         console.log('Power on');
     });
