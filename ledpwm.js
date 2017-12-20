@@ -10,17 +10,17 @@ const blue_pin = 25;
 const STEPS = 256;		// The number of brightness levels
 
 var colors = {  // Stores the pins of the colors and the current brightness of the strip
-	red: {
-		pin: red_pin,
-		current_brightness: 0	
+	'red': {
+		'pin': red_pin,
+		'current_brightness': 0	
 	},
-	green:{
-		pin: green_pin,
-		current_brightness: 0
+	'green':{
+		'pin': green_pin,
+		'current_brightness': 0
 	},
-	blue: {
-		pin: blue_pin,
-		current_brightness: 0
+	'blue': {
+		'pin': blue_pin,
+		'current_brightness': 0
 	}
 };		
 
@@ -50,7 +50,7 @@ Array.prototype.random = function () {  // Generates random values
 
 var direction = 1
 var a = 0;
-var selected_color = "red";
+var selected_color = 'red';
 
 function color_looper() {
 	if (direction == 1){
