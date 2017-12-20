@@ -86,9 +86,9 @@ function color_looper() {
 }
 
 function color_changer() {
-	piblaster.setPwm(colors.red.pin, (brightness_level/STEPS), function(callback) {
-		piblaster.setPwm(colors.green.pin, (brightness_level/STEPS));
-		piblaster.setPwm(colors.blue.pin, (brightness_level/STEPS));
+	piblaster.setPwm(colors.red.pin, (colors.red.current_brightness/STEPS), function(callback) {
+		piblaster.setPwm(colors.green.pin, (bcolors.green.current_brightness/STEPS));
+		piblaster.setPwm(colors.blue.pin, (colors.blue.current_brightness/STEPS));
 		color_looper();
 	});
 }
