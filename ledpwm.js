@@ -7,11 +7,11 @@ const power_pin = 7;  // Pin to start up the ATX PSU  !!Different pin numbering
 const red_pin = 24;
 const green_pin = 23;
 const blue_pin = 25;
-const GPIO_PINS = [red_pin, green_pin, blue_pin];
-const COLORS = [0,1,2];		// Define used GPIO pins
+const GPIO_PINS = [red_pin, blue_pin, green_pin];
+const COLORS = {"red": red_pin, "green": green_pin, "blue": blue_pin};		// Define used GPIO pins
 const STEPS = 256;		// The number of brightness levels
 
-var current_colors = [0,0,0];
+var current_colors = {"red": 0, "green": 0, "blue": 0};
 
 gpio.setup(power_pin, gpio.DIR_OUT, start_power);
 
@@ -39,7 +39,7 @@ Array.prototype.random = function () {  // Generates random values
 
 var direction = 1
 var a = 0;
-var selected_color = 0;
+var selected_color = "red";
 
 function color_looper() {
 	if (direction == 1){
