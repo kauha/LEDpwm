@@ -1,6 +1,6 @@
 var piblaster = require('pi-blaster.js'); // Require pi-blaster lib
 var gpio = require('rpi-gpio');   // Require rpi-gpio lib for starting ATX PSU
-const power_pin = 4;  // Pin to start up the ATX PSU
+const power_pin = 7;  // Pin to start up the ATX PSU  !!Different pin numbering
 var sleep = require('sleep'); //Sleeping
 const red_pin = 24;
 const green_pin = 23;
