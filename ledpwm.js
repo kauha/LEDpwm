@@ -50,7 +50,7 @@ Array.prototype.random = function () {  // Generates random values
 
 var direction = 1
 var a = 0;
-var selected_color = red;
+var selected_color = "red";
 
 function color_looper() {
 	if (direction == 1){
