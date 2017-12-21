@@ -48,9 +48,9 @@ app.post('/color_code', function (req, res) {
       blue:req.body.blue
    };
    console.log(response.red, response.green, response.blue);
-   global.colors.red.pin = response.red;
-   global.colors.green.pin = response.green;
-   global.colors.blue.pin = response.blue;   
+   global.colors.red.current_brightness = response.red;
+   global.colors.green.current_brightness = response.green;
+   global.colors.blue.current_brightness = response.blue;   
    led.data.set_color();
    res.send({success: true});
 })
