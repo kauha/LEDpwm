@@ -26,7 +26,9 @@ var colors = {  // Stores the pins of the colors and the current brightness of t
 };		
 
 
-methods.start_power = function() {
+var exports = module.exports = {};
+
+exports.start_power = function() {
 	gpio.setup(power_pin, gpio.DIR_OUT, start_power);
 	gpio.write(power_pin, true, function(err) {
         if (err) throw err;
@@ -38,7 +40,7 @@ Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
 
-methods.start_color_loop = function() {
+exports.start_color_loop = function() {
 	var direction = 1
 	var a = 0;
 	var selected_color = key_array.random();
@@ -87,8 +89,6 @@ function color_changer() {
 	});
 }
 
-
-exports = methods;
 //start_color_loop();
 
 /*
