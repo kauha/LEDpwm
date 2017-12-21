@@ -16,6 +16,7 @@ const blue_pin = 24;
 global.STEPS = 256;		// The number of brightness levels
 
 global.power_status = false;
+global.loop_status = undefined;
 
 global.key_array = ['red', 'green', 'blue'];
 global.colors = {  // Stores the pins of the colors and the current brightness of the strip
@@ -72,13 +73,14 @@ app.post('/power_off', function (req, res) {
 })
 
 app.post('/start_rgb_loop', function (req, res) {
+	global.loop_status = true;
 	led.data.start_color_loop();
 	console.log("Color loop on");
 	res.sendStatus(200);
 })
 
 app.post('/stop_rgb_loop', function (req, res) {
-	//led.data.start_color_loop();
+	global.loop_status = false;
 	console.log("Color loop off");
 	res.sendStatus(200);
 })
