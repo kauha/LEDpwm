@@ -31,11 +31,15 @@ global.colors = {  // Stores the pins of the colors and the current brightness o
 };		
 ///LED STUFF
 
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
 app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "index.htm" );
 })
 
-app.get('/process_get', function (req, res) {
+app.post('/process_get', function (req, res) {
    // Prepare output in JSON format
    response = {
       first_name:req.query.first_name,
@@ -45,11 +49,30 @@ app.get('/process_get', function (req, res) {
    res.send({success: true});
 })
 
-app.get('/power_on', function (req, res) {
-	led.data.start_color_loop();
+app.post('/power_on', function (req, res) {
+	led.data.start_power();
 	console.log("PSU turned on");
 	res.status(200);
 })
+
+app.post('/power_off', function (req, res) {
+	//led.data.start_color_loop();
+	console.log("PSU turned off");
+	res.status(200);
+})
+
+app.post('/start_rgb_loop', function (req, res) {
+	led.data.start_color_loop();
+	console.log("Color loop on");
+	res.status(200);
+})
+
+app.post('/stop_rgb_loop', function (req, res) {
+	//led.data.start_color_loop();
+	console.log("Color loop off");
+	res.status(200);
+})
+
 
 var server = app.listen(8081, function () {
    var host = server.address().address

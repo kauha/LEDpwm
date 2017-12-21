@@ -8,16 +8,17 @@
 	<body>
 	<div ng-app="">
       
-		<form action = "/process_get" method = "GET">
-			Etunimi: <input type = "text" name = "first_name" ng-model="f_name" placeholder="Kirjoita nimi tähän">  <br>
-			Sukunimi: <input type = "text" name = "last_name" ng-model="l_name" placeholder="Kirjoita nimi tähän">
+		<form action = "/color_code" method = "POST">
+			RED: <input type = "text" name = "red" ng-model="r_color" placeholder="Väri välillä 0-256">  <br>
+			GREEN: <input type = "text" name = "green" ng-model="g_color" placeholder="Väri välillä 0-256"> <br>
+			BLUE: <input type = "text" name = "blue" ng-model="b_color" placeholder="Väri välillä 0-256">
 			<input type = "submit" value = "Submit">
 			<br>
-			<h2> Testi {{f_name}}  {{l_name}}</h2>
+			<h2> Värikoodi {{r_color}}  {{g_color}} {{b_color}}</h2>
 		</form>
 
 		<br><br>
-	<form action="/power_on" method="GET">
+	<form action="/power_on" method="POST">
 		<button type="submit"> Virta päälle</button>
 	</form>
 
