@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var led = require("./ledpwm.js")
+var bodyParser = require("body-parser")
 
 /// LED STUFF
 var piblaster = require('pi-blaster.js'); // Require pi-blaster lib
