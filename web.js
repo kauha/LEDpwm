@@ -47,7 +47,7 @@ app.post('/color_code', function (req, res) {
       green:req.query.green,
       blue:req.query.blue
    };
-   console.log(response);
+   console.log(req);
    res.send({success: true});
 })
 
