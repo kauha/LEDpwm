@@ -39,6 +39,13 @@ function send_start () {
     });
 }
 
+methods.stop_power = function() {
+	gpio.write(global.power_pin, false, function(err) {
+        if (err) throw err;
+        console.log('Power supply turned off');
+    });
+};
+
 Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
