@@ -83,7 +83,7 @@ function color_changer() {
 	});
 }
 
-color_looper();
+//color_looper();
 
 /*
 piblaster.setPwm(18, 1 ); // 100% brightness
