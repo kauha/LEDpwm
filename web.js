@@ -15,6 +15,8 @@ const green_pin = 25;
 const blue_pin = 24;
 global.STEPS = 256;		// The number of brightness levels
 
+global.power_status = false;
+
 global.key_array = ['red', 'green', 'blue'];
 global.colors = {  // Stores the pins of the colors and the current brightness of the strip
 	'red': {
@@ -62,7 +64,7 @@ app.post('/power_on', function (req, res) {
 })
 
 app.post('/power_off', function (req, res) {
-	led.data.power_status() = false ;
+	led.data.power_status();
 	console.log("PSU turned off");
 	res.sendStatus(200);
 })

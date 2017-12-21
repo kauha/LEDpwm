@@ -28,7 +28,7 @@ var colors = {  // Stores the pins of the colors and the current brightness of t
 var methods = {};
 
 methods.power_status = function() {
-	if (status == true) {
+	if (global.power_status == true) {
 		gpio.setup(global.power_pin, gpio.DIR_OUT, send_start);
 	} else {
 		gpio.setup(global.power_pin, gpio.DIR_OUT, send_stop);
