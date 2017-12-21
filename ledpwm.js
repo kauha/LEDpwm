@@ -57,6 +57,7 @@ function color_looper() {
 				} else {
 					direction = -1;
 				color_looper();	
+				}
 		}
 	} else {
 		if(colors[selected_color]['current_brightness'] >= 1) {
@@ -83,7 +84,7 @@ function color_changer() {
 	});
 }
 
-//color_looper();
+color_looper();
 
 /*
 piblaster.setPwm(18, 1 ); // 100% brightness
