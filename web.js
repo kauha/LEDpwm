@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var led = require("./ledpwm.js")
 
-/*/// LED STUFF
+/// LED STUFF
 var piblaster = require('pi-blaster.js'); // Require pi-blaster lib
 var gpio = require('rpi-gpio');   // Require rpi-gpio lib for starting ATX PSU
 var sleep = require('sleep'); //Sleeping
@@ -29,7 +29,7 @@ var colors = {  // Stores the pins of the colors and the current brightness of t
 		'current_brightness': 0
 	}
 };		
-///LED STUFF*/
+///LED STUFF
 
 app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "index.htm" );
@@ -46,7 +46,7 @@ app.get('/process_get', function (req, res) {
 })
 
 app.get('/power_on', function (req, res) {
-	led.data.start_color_loop();
+	led.data.start_color_loop(colors, key_array, STEPS);
 	console.log("PSU turned on");
 	res.status(200);
 })

@@ -39,11 +39,11 @@ Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
 
-methods.start_color_loop = function(key_array) {
+methods.start_color_loop = function(colors, key_array, STEPS) {
 	var direction = 1;
 	var selected_color = key_array.random();
 	console.log("Changing brightness of", selected_color);
-	color_looper(direction, selected_color);
+	color_looper(colors, direction, selected_color, key_array, STEPS);
 };
 
 function color_looper(direction, selected_color) {
