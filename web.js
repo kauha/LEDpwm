@@ -43,11 +43,11 @@ app.get('/', function (req, res) {
 app.post('/color_code', function (req, res) {
    // Prepare output in JSON format
    response = {
-      red:req.query.red,
-      green:req.query.green,
-      blue:req.query.blue
+      red:req.body.red,
+      green:req.body.green,
+      blue:req.body.blue
    };
-   console.log(req);
+   console.log(response);
    res.send({success: true});
 })
 
