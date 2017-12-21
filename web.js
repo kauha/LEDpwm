@@ -40,11 +40,12 @@ app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "index.htm" );
 })
 
-app.post('/process_get', function (req, res) {
+app.post('/color_code', function (req, res) {
    // Prepare output in JSON format
    response = {
-      first_name:req.query.first_name,
-      last_name:req.query.last_name
+      red:req.query.red,
+      green:req.query.green,
+      blue:req.query.blue
    };
    console.log(response);
    res.send({success: true});

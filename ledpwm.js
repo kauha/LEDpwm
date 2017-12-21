@@ -28,12 +28,16 @@ var colors = {  // Stores the pins of the colors and the current brightness of t
 var methods = {};
 
 methods.start_power = function() {
-	gpio.setup(global.power_pin, gpio.DIR_OUT, start_power);
+	gpio.setup(global.power_pin, gpio.DIR_OUT, send_start);
+	
+};
+
+function send_start () {
 	gpio.write(global.power_pin, true, function(err) {
         if (err) throw err;
         console.log('Power supply turned on');
     });
-};
+}
 
 Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
@@ -85,7 +89,7 @@ function color_changer(direction, selected_color) {
 		piblaster.setPwm(global.colors.green.pin, (global.colors.green.current_brightness/global.STEPS));
 		piblaster.setPwm(global.colors.blue.pin, (global.colors.blue.current_brightness/global.STEPS));
 		color_looper(direction, selected_color);
-		console.log(colors, selected_color, direction);
+		//console.log(colors, selected_color, direction);
 	});
 }
 
