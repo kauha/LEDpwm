@@ -7,15 +7,15 @@ var piblaster = require('pi-blaster.js'); // Require pi-blaster lib
 var gpio = require('rpi-gpio');   // Require rpi-gpio lib for starting ATX PSU
 var sleep = require('sleep'); //Sleeping
 
-const power_pin = 7;  // Pin to start up the ATX PSU  !!Different pin numbering
+global.power_pin = 7;  // Pin to start up the ATX PSU  !!Different pin numbering
 
 const red_pin = 23;		// Define used GPIO pins
 const green_pin = 25;
 const blue_pin = 24;
-const STEPS = 256;		// The number of brightness levels
+global.STEPS = 256;		// The number of brightness levels
 
-const key_array = ['red', 'green', 'blue'];
-var colors = {  // Stores the pins of the colors and the current brightness of the strip
+global.key_array = ['red', 'green', 'blue'];
+global.colors = {  // Stores the pins of the colors and the current brightness of the strip
 	'red': {
 		'pin': red_pin,
 		'current_brightness': 0	
@@ -46,7 +46,7 @@ app.get('/process_get', function (req, res) {
 })
 
 app.get('/power_on', function (req, res) {
-	led.data.start_color_loop(colors, key_array, STEPS);
+	led.data.start_color_loop();
 	console.log("PSU turned on");
 	res.status(200);
 })
