@@ -46,7 +46,7 @@ methods.start_color_loop = function(colors, key_array, STEPS) {
 	color_looper(colors, direction, selected_color, key_array, STEPS);
 };
 
-function color_looper(colors, direction, selected_color) {
+function color_looper(colors, direction, selected_color, key_array, STEPS) {
 	if (direction == 1){
 		if(colors[selected_color]['current_brightness'] < STEPS) {
 			sleep.msleep(10);
