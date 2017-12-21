@@ -55,34 +55,34 @@ app.post('/color_code', function (req, res) {
    global.colors.green.current_brightness = response.green;
    global.colors.blue.current_brightness = response.blue;   
    led.data.set_color();
-   res.redirect(req.originalUrl);
+   res.redirect('/');
 })
 
 app.post('/power_on', function (req, res) {
 	global.power_status = true;
 	led.data.power_status();
 	console.log("PSU turned on");
-	res.redirect(req.originalUrl);
+	res.redirect('/');
 })
 
 app.post('/power_off', function (req, res) {
 	global.power_status = false;
 	led.data.power_status();
 	console.log("PSU turned off");
-	res.redirect(req.originalUrl);
+	res.redirect('/');
 })
 
 app.post('/start_rgb_loop', function (req, res) {
 	global.loop_status = true;
 	led.data.start_color_loop();
 	console.log("Color loop on");
-	res.redirect(req.originalUrl);
+	res.redirect('/');
 })
 
 app.post('/stop_rgb_loop', function (req, res) {
 	global.loop_status = false;
 	console.log("Color loop off");
-	res.redirect(req.originalUrl);
+	res.redirect('/');
 })
 
 
