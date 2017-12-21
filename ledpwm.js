@@ -1,4 +1,4 @@
-var piblaster = require('pi-blaster.js'); // Require pi-blaster lib
+/*var piblaster = require('pi-blaster.js'); // Require pi-blaster lib
 var gpio = require('rpi-gpio');   // Require rpi-gpio lib for starting ATX PSU
 var sleep = require('sleep'); //Sleeping
 
@@ -24,7 +24,7 @@ var colors = {  // Stores the pins of the colors and the current brightness of t
 		'current_brightness': 0
 	}
 };		
-
+*/
 var methods = {};
 
 methods.start_power = function() {
@@ -40,14 +40,13 @@ Array.prototype.random = function () {  // Generates random values
 }
 
 methods.start_color_loop = function() {
-	var direction = 1
-	var a = 0;
+	var direction = 1;
 	var selected_color = key_array.random();
 	console.log("Changing brightness of", selected_color);
-	color_looper();
+	color_looper(direction, selected_color);
 };
 
-function color_looper() {
+function color_looper(direction, selected_color) {
 	if (direction == 1){
 		if(colors[selected_color]['current_brightness'] < STEPS) {
 			sleep.msleep(10);
@@ -92,7 +91,7 @@ exports.data = methods;
 //start_color_loop();
 
 /*
-piblaster.setPwm(18, 1 ); // 100% brightness
-piblaster.setPwm(23, 0.2 ); // 20% brightness
-piblaster.setPwm(24, 0 ); // off
+piblaster.release(colors.red.pin); 
+piblaster.release(colors.green.pin); 
+piblaster.release(colors.blue.pin); 
 */
