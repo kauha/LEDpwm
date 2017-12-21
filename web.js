@@ -52,31 +52,31 @@ app.post('/color_code', function (req, res) {
    global.colors.green.current_brightness = response.green;
    global.colors.blue.current_brightness = response.blue;   
    led.data.set_color();
-   res.send({success: true});
+   res.sendStatus(200);
 })
 
 app.post('/power_on', function (req, res) {
 	led.data.start_power();
 	console.log("PSU turned on");
-	res.status(200);
+	res.sendStatus(200);
 })
 
 app.post('/power_off', function (req, res) {
 	//led.data.start_color_loop();
 	console.log("PSU turned off");
-	res.status(200);
+	res.sendStatus(200);
 })
 
 app.post('/start_rgb_loop', function (req, res) {
 	led.data.start_color_loop();
 	console.log("Color loop on");
-	res.status(200);
+	res.sendStatus(200);
 })
 
 app.post('/stop_rgb_loop', function (req, res) {
 	//led.data.start_color_loop();
 	console.log("Color loop off");
-	res.status(200);
+	res.sendStatus(200);
 })
 
 
