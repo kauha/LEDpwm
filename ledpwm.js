@@ -62,8 +62,9 @@ methods.start_color_loop = function() {
 
 function color_looper(direction, selected_color) {
 	if (global.loop_status == false) {
-		break;
+		return
 	}
+	
 	if (direction == 1){
 		if(global.colors[selected_color]['current_brightness'] < global.STEPS) {
 			sleep.msleep(10);
