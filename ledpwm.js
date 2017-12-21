@@ -93,6 +93,13 @@ function color_changer(direction, selected_color) {
 	});
 }
 
+methods.set_color = function() {
+	piblaster.setPwm(global.colors.red.pin, (global.colors.red.current_brightness/global.STEPS);
+	piblaster.setPwm(global.colors.green.pin, (global.colors.green.current_brightness/global.STEPS));
+	piblaster.setPwm(global.colors.blue.pin, (global.colors.blue.current_brightness/global.STEPS));
+	return
+}
+
 exports.data = methods;
 //start_color_loop();
 
