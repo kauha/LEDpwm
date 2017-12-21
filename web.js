@@ -62,7 +62,7 @@ app.post('/power_on', function (req, res) {
 })
 
 app.post('/power_off', function (req, res) {
-	led.data.power_status();
+	led.data.power_status() = false ;
 	console.log("PSU turned off");
 	res.sendStatus(200);
 })
