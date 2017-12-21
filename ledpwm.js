@@ -26,8 +26,6 @@ var colors = {  // Stores the pins of the colors and the current brightness of t
 };		
 
 
-var exports = module.exports;
-
 exports.start_power = function() {
 	gpio.setup(power_pin, gpio.DIR_OUT, start_power);
 	gpio.write(power_pin, true, function(err) {
