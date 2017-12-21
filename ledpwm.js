@@ -26,25 +26,25 @@ var colors = {  // Stores the pins of the colors and the current brightness of t
 };		
 
 
-function start_power() {
+methods.start_power = function() {
 	gpio.setup(power_pin, gpio.DIR_OUT, start_power);
 	gpio.write(power_pin, true, function(err) {
         if (err) throw err;
         console.log('Power supply turned on');
     });
-}
+};
 
 Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
 
-function start_color_loop() {
+methods.start_color_loop = function() {
 	var direction = 1
 	var a = 0;
 	var selected_color = key_array.random();
 	console.log("Changing brightness of", selected_color);
 	color_looper();
-}
+};
 
 function color_looper() {
 	if (direction == 1){
@@ -87,6 +87,8 @@ function color_changer() {
 	});
 }
 
+
+exports = methods;
 //start_color_loop();
 
 /*
