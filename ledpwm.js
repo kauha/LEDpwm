@@ -27,9 +27,12 @@ var colors = {  // Stores the pins of the colors and the current brightness of t
 
 var methods = {};
 
-methods.start_power = function() {
-	gpio.setup(global.power_pin, gpio.DIR_OUT, send_start);
-	
+methods.start_power = function(status) {
+	if (status == true) {
+		gpio.setup(global.power_pin, gpio.DIR_OUT, send_start);
+	} else {
+		gpio.setup(global.power_pin, gpio.DIR_OUT, send_stop);
+	}
 };
 
 function send_start () {
@@ -39,12 +42,12 @@ function send_start () {
     });
 }
 
-methods.stop_power = function() {
+function send_stop () {
 	gpio.write(global.power_pin, false, function(err) {
         if (err) throw err;
         console.log('Power supply turned off');
     });
-};
+}
 
 Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];

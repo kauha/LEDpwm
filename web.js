@@ -56,13 +56,13 @@ app.post('/color_code', function (req, res) {
 })
 
 app.post('/power_on', function (req, res) {
-	led.data.start_power();
+	led.data.power_status(true);
 	console.log("PSU turned on");
 	res.sendStatus(200);
 })
 
 app.post('/power_off', function (req, res) {
-	led.data.stop_power();
+	led.data.power_status(false);
 	console.log("PSU turned off");
 	res.sendStatus(200);
 })
