@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var led = require("ledpwm.js")
+
 
 app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "index.htm" );
@@ -13,6 +15,12 @@ app.get('/process_get', function (req, res) {
    };
    console.log(response);
    res.send({success: true});
+})
+
+app.get('/power_on', function (req, res) {
+	led.start_power();
+	console.log("PSU turned on");
+	res.status(200);
 })
 
 var server = app.listen(8081, function () {

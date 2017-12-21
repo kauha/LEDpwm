@@ -25,9 +25,9 @@ var colors = {  // Stores the pins of the colors and the current brightness of t
 	}
 };		
 
-gpio.setup(power_pin, gpio.DIR_OUT, start_power);
 
 function start_power() {
+	gpio.setup(power_pin, gpio.DIR_OUT, start_power);
 	gpio.write(power_pin, true, function(err) {
         if (err) throw err;
         console.log('Power supply turned on');
@@ -56,7 +56,6 @@ function color_looper() {
 					direction = 1;
 				} else {
 					direction = -1;
-				}
 				color_looper();	
 		}
 	} else {
