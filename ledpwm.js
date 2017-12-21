@@ -38,10 +38,13 @@ Array.prototype.random = function () {  // Generates random values
 	return this[Math.floor((Math.random()*this.length))];
 }
 
-var direction = 1
-var a = 0;
-var selected_color = key_array.random();
-console.log("Changing brightness of", selected_color);
+function start_color_loop() {
+	var direction = 1
+	var a = 0;
+	var selected_color = key_array.random();
+	console.log("Changing brightness of", selected_color);
+	color_looper();
+}
 
 function color_looper() {
 	if (direction == 1){
@@ -84,7 +87,7 @@ function color_changer() {
 	});
 }
 
-//color_looper();
+//start_color_loop();
 
 /*
 piblaster.setPwm(18, 1 ); // 100% brightness
