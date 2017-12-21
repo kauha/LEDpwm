@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<head>
    		<meta charset="UTF-8">
 		<title>Valokontrolli</title>
 	</head>
-   <body>
+	<body>
+	<div ng-app=">lightcontrol">
       
-      <form action = "/process_get" method = "GET">
-         Etunimi: <input type = "text" name = "first_name">  <br>
-         Sukunimi: <input type = "text" name = "last_name">
-         <input type = "submit" value = "Submit">
-      </form>
+		<form action = "/process_get" method = "GET">
+			Etunimi: <input type = "text" name = "first_name" ng-model="f_name" placeholder="Kirjoita nimi tähän">  <br>
+			Sukunimi: <input type = "text" name = "last_name" ng-model="l_name" placeholder="Kirjoita nimi tähän">
+			<input type = "submit" value = "Submit">
+			<br>
+			<h2> Testi {{f_name}}  {{l_name}}</h2>
+		</form>
+
+	</div>
       
    </body>
 </html>
