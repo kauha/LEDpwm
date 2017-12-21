@@ -18,7 +18,7 @@ app.get('/process_get', function (req, res) {
 })
 
 app.get('/power_on', function (req, res) {
-	led.start_power();
+	led.data.start_power();
 	console.log("PSU turned on");
 	res.status(200);
 })
