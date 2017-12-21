@@ -47,8 +47,8 @@ app.post('/color_code', function (req, res) {
       green:req.body.green,
       blue:req.body.blue
    };
-   console.log(response);
-   global.colors.red = response.red
+   console.log(response.red, response.green, response.blue);
+   global.colors.red = response.red;
    global.colors.green = response.green;
    global.colors.blue = response.blue;   
    led.data.set_color();
