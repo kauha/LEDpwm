@@ -59,8 +59,9 @@ function color_looper(direction, selected_color) {
 					direction = 1;
 				} else {
 					direction = -1;
-				color_looper(direction, selected_color);	
 				}
+				color_looper(direction, selected_color);	
+				
 		}
 	} else {
 		if(global.colors[selected_color]['current_brightness'] >= 1) {
