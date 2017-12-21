@@ -26,6 +26,7 @@ var colors = {  // Stores the pins of the colors and the current brightness of t
 };		
 
 
+
 exports.start_power = function() {
 	gpio.setup(power_pin, gpio.DIR_OUT, start_power);
 	gpio.write(power_pin, true, function(err) {
@@ -86,6 +87,8 @@ function color_changer() {
 		color_looper();
 	});
 }
+
+module.exports;
 
 //start_color_loop();
 
