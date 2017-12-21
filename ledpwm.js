@@ -88,7 +88,7 @@ function color_changer() {
 	});
 }
 
-module.exports;
+module.exports = "";
 
 //start_color_loop();
 
