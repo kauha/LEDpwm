@@ -9,12 +9,19 @@
 	<div ng-app="">
 			<h3> RGB värikoodi </h3>
 		<form action = "/color_code" method = "POST">
+			<table>
 			<tr>
-			Red: <td><input name="red" type="range" min="0" max="256" step="1" />
+				<th> Red </th>
+				<th> Green </th>
+				<th> Blue </th>
+			</tr>
 			<tr>
-			Green: <td><input name="green" type="range" min="0" max="256" step="1" /> 
-			<tr>
-			Blue: <td><input name="blue" type="range" min="0" max="256" step="1" />
+			<td><input name="red" type="range" min="0" max="256" step="1" /></td>
+			<td><input name="green" type="range" min="0" max="256" step="1" /></td>
+			<td><input name="blue" type="range" min="0" max="256" step="1" /></td>
+		</tr>
+
+		</table>
 			<input type = "submit" value = "Submit">
 			
 		</form>
